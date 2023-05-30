@@ -1,0 +1,11 @@
+{{define "content"}}
+    {{ template "postForm" . }}
+    <div class="row row-cols-3 g-3 mt-3">
+    {{ range .posts }}
+        {{$o := arr $.user.Id .}}
+        {{template "post" $o}}
+    {{ end }}
+    </div>
+
+{{end}}
+

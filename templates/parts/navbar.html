@@ -1,0 +1,23 @@
+{{define "navbar"}}
+<nav class="navbar navbar-expand navbar-light bg-light mb-3">
+    <div class="container">
+        <a class="navbar-brand" href="/">AmigoZone</a>
+
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/user/{{.user.Id}}">My posts</a>
+            </li>
+            <li class="nav-item">
+                {{if not .user.Id}}
+                <a class="nav-link" href="/login">Login</a>
+                {{else}}
+                <a class="nav-link" href="/logout">Logout</a>
+                {{end}}
+            </li>
+            <li class="nav-item"><div class="navbar-text"> {{ .user.Name }}</div></li>
+        </ul>
+    </div>
+
+</nav>
+{{end}}
+me-auto

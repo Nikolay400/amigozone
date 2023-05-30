@@ -1,0 +1,6 @@
+{{define "content"}}
+    {{ range .posts }}
+        {{$o := arr $.user.Id .}}
+        {{template "post" $o}}
+    {{ end }}
+{{end}}

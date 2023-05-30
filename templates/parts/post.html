@@ -1,0 +1,19 @@
+{{define "post"}}
+{{$currentUserId := index . 0}}
+{{$post := index . 1}}
+<div class=" col">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ $post.Title}}</h5>
+            <p class="card-text">{{ $post.Text}}</p>
+            <a href="/user/{{ $post.User.Id }}">{{ $post.User.Name }}</a>
+            {{ if eq $currentUserId $post.User.Id}}
+            <a href="/post/change/{{ $post.Id }}">Change</a>
+            <form action="/post/delete/{{ $post.Id }}" method="post">
+                <input type="submit" class="btn-link" value="Delete"/>
+            </form>
+            {{end}}
+        </div>
+    </div>
+</div>
+{{end}}
