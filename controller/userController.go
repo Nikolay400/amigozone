@@ -31,7 +31,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		user.Name = r.FormValue("name")
 		user.Password = r.FormValue("password")
 		user.Email = r.FormValue("email")
-		serv.MailSender(user.Email, "", "Hello")
+		serv.MailSender(user.Email, "Hello", "Hello")
 		db.CreateUser(&user)
 		http.Redirect(w, r, "/login", http.StatusSeeOther)
 	}

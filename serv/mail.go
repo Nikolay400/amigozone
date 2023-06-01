@@ -14,7 +14,7 @@ func AuthInit() {
 
 func MailSender(to string, subject string, body string) {
 	msg := []byte("To: " + to + "\r\n" +
-		"Subject: discount Gophers!\r\n" +
+		"Subject: " + subject + "\r\n" +
 		"\r\n" + body + ".\r\n")
 
 	err := smtp.SendMail("smtp.gmail.com:587", Auth, c.Mail, []string{to}, msg)
